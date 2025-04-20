@@ -3,32 +3,40 @@ package com.batis.demo;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.beans.factory.annotation.Autowired;
-import java.util.List;
-import com.batis.demo.mapper.UserMapper;
-import com.batis.demo.pojo.User;
+import java.time.LocalDate;
+import com.batis.demo.pojo.Emp;
+import com.batis.demo.mapper.EmpMapper;
+import java.time.LocalDateTime;
+
 
 @SpringBootTest
 class DemoApplicationTests {
 
 	@Autowired
-	private UserMapper userMapper;
+	private EmpMapper empMapper;
 
 	@Test
-	public void testList() {
-		List<User> users = userMapper.list();
-		// 使用Stream流输出用户信息
-		users.stream()
-			.forEach(user -> System.out.println("用户ID: " + user.getId() + 
-				", 姓名: " + user.getName() + 
-				", 年龄: " + user.getAge() + 
-				", 性别: " + user.getGender() + 
-				", 电话: " + user.getPhone()));
+	public void testDeleteById() {
+		int result = empMapper.deleteById(16);
+		System.out.println("删除结果: " + result);
+	}
+
+	@Test
+	public void testInsert() {
+		Emp emp = new Emp();
+		emp.setUsername("test3");
+		emp.setName("测试3");
+		emp.setGender((short) 1);
+		emp.setImage("test3.jpg");
+		emp.setJob((short) 1);
+		emp.setEntrydate(LocalDate.now());
+		emp.setDeptId(1);
+		emp.setCreateTime(LocalDateTime.now());
+		emp.setUpdateTime(LocalDateTime.now());
+		empMapper.insert(emp);
+		System.out.println("插入结果: " + emp);
+		System.out.println("插入结果: " + emp.getId());
 		
-		// 也可以使用更复杂的Stream操作，例如过滤和排序
-		System.out.println("\n按年龄排序后的用户:");
-		users.stream()
-			.sorted((u1, u2) -> u1.getAge() - u2.getAge())
-			.forEach(user -> System.out.println(user.getName() + " - " + user.getAge() + "岁"));
 	}
 
 }
