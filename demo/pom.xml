@@ -8,7 +8,7 @@
 		<version>3.4.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.batis</groupId>
+	<groupId>com.tlias</groupId>
 	<artifactId>demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>demo</name>
@@ -35,13 +35,6 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.18.38</version>
-		</dependency>
-
-
-		<dependency>
-			<groupId>name.remal.gradle-plugins.lombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>3.0.1</version>
 		</dependency>
 
 		<dependency>
