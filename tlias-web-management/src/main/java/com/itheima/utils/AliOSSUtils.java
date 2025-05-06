@@ -14,11 +14,17 @@ import java.util.UUID;
 @Component
 public class AliOSSUtils {
     
-    private AliOSSProperties aliOSSProperties;
-    private String endpoint = aliOSSProperties.getEndpoint();
-    private String accessKeyId = aliOSSProperties.getAccessKeyId();
-    private String accessKeySecret = aliOSSProperties.getAccessKeySecret();
-    private String bucketName = aliOSSProperties.getBucketName();
+    @Value("${aliyun.oss.endpoint}")
+    private String endpoint;
+    
+    @Value("${aliyun.oss.access-key-id}")
+    private String accessKeyId;
+    
+    @Value("${aliyun.oss.access-key-secret}")
+    private String accessKeySecret;
+    
+    @Value("${aliyun.oss.bucket-name}")
+    private String bucketName;
 
     /**
      * 实现上传图片到OSS

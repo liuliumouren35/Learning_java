@@ -55,4 +55,12 @@ public interface EmpMapper {
      */
     @Select("select * from emp where id = #{id}")
     Emp getById(Integer id);
+
+    /**
+     * 根据用户名查询员工
+     * @param username 用户名
+     * @return 员工对象
+     */
+    @Select("select * from emp where username = #{username}")
+    Emp getByUsername(String username);
 }

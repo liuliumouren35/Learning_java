@@ -8,9 +8,9 @@ import org.springframework.web.multipart.MultipartFile;
 import com.itheima.utils.AliOSSUtils;
 import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+@Component("uploadController")
 
-
-@RestController
 @Slf4j
 public class UploadController {
 
