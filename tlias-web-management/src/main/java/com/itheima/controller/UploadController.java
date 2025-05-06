@@ -1,5 +1,6 @@
 package com.itheima.controller;
 
+import com.itheima.pojo.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,13 +28,13 @@ public class UploadController {
     // }
 
     @PostMapping("/upload")
-    public String upload(MultipartFile image) throws IOException {
+    public Result upload(MultipartFile image) throws IOException {
         log.info("上传的文件名: {}", image.getOriginalFilename());
         log.info("上传的文件类型: {}", image.getContentType());
         log.info("上传的文件大小: {}", image.getSize());
         //调用阿里云OSS工具类上传文件
         String url = aliOSSUtils.upload(image);
         log.info("文件上传成功: {}", url);
-        return url;
+        return Result.success(url);
     }
 }

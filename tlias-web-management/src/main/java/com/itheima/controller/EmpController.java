@@ -54,4 +54,16 @@ public class EmpController {
         empService.update(emp);
         return Result.success();
     }
+    
+    /**
+     * 根据ID查询员工信息
+     * @param id 员工ID
+     * @return 员工对象
+     */
+    @GetMapping("/{id}")
+    public Result getById(@PathVariable Integer id) {
+        log.info("根据id查询员工信息 : {}", id);
+        Emp emp = empService.getById(id);
+        return Result.success(emp);
+    }
 }

@@ -12,6 +12,9 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 
 @Service
 public class EmpServiceImpl implements EmpService {
@@ -58,5 +61,10 @@ public class EmpServiceImpl implements EmpService {
         //补充修改时间
         emp.setUpdateTime(LocalDateTime.now());
         empMapper.update(emp);
+    }
+    
+    @Override
+    public Emp getById(Integer id) {
+        return empMapper.getById(id);
     }
 }

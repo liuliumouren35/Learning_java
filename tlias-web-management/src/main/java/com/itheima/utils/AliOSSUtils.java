@@ -4,6 +4,7 @@ import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Value;
 import java.io.*;
 import java.util.UUID;
 
@@ -12,11 +13,12 @@ import java.util.UUID;
  */
 @Component
 public class AliOSSUtils {
-
-    private String endpoint = "https://oss-cn-beijing.aliyuncs.com";
-    private String accessKeyId = "LTAI5tBqPPqyqT3FErJzXL8d";
-    private String accessKeySecret = "XS85hpn06TMFPWrR6JPvRDpJyNHcr4";
-    private String bucketName = "spring-coming516";
+    
+    private AliOSSProperties aliOSSProperties;
+    private String endpoint = aliOSSProperties.getEndpoint();
+    private String accessKeyId = aliOSSProperties.getAccessKeyId();
+    private String accessKeySecret = aliOSSProperties.getAccessKeySecret();
+    private String bucketName = aliOSSProperties.getBucketName();
 
     /**
      * 实现上传图片到OSS
