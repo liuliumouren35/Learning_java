@@ -19,7 +19,7 @@ mybatis:
 #阿里云OSS
 aliyun:
   oss:
-    endpoint: https://oss-cn-hangzhou.aliyuncs.com
+    endpoint: https://oss-cn-beijing.aliyuncs.com
     accessKeyId: LTAI5tBqPPqyqT3FErJzXL8d
     accessKeySecret: XS85hpn06TMFPWrR6JPvRDpJyNHcr4
     bucketName: spring-coming516
