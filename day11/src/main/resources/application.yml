@@ -23,3 +23,12 @@ aliyun:
     accessKeyId: LTAI5tBqPPqyqT3FErJzXL8d
     accessKeySecret: XS85hpn06TMFPWrR6JPvRDpJyNHcr4
     bucketName: spring-coming516
+
+#spring事务管理日志
+logging:
+  level:
+    org:
+      springframework:
+        transaction:
+          aspect: DEBUG
+          
