@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import com.itheima.anno.RecordOperationLog;
 
 import java.util.List;
 
@@ -29,6 +30,7 @@ public class DeptController {
      */
     //@RequestMapping(value = "/depts",method = RequestMethod.GET) //指定请求方式为GET
     @GetMapping
+    @RecordOperationLog
     public Result list(){
         log.info("查询全部部门数据");
         //调用service查询部门数据
@@ -41,6 +43,7 @@ public class DeptController {
      * 删除部门
      * @return
      */
+    @RecordOperationLog
     @DeleteMapping("/{id}")
     public Result delete(@PathVariable Integer id){
         log.info("根据id删除部门:{}",id);

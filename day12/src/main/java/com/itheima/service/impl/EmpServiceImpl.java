@@ -2,6 +2,7 @@ package com.itheima.service.impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.itheima.anno.RecordOperationLog;
 import com.itheima.mapper.EmpMapper;
 import com.itheima.pojo.Emp;
 import com.itheima.pojo.PageBean;
@@ -48,11 +49,13 @@ public class EmpServiceImpl implements EmpService {
         return pageBean;
     }
 
+    @RecordOperationLog
     @Override
     public void delete(List<Integer> ids) {
         empMapper.delete(ids);
     }
 
+    @RecordOperationLog
     @Override
     public void save(Emp emp) {
         emp.setCreateTime(LocalDateTime.now());
@@ -65,6 +68,7 @@ public class EmpServiceImpl implements EmpService {
         return empMapper.getById(id);
     }
 
+    @RecordOperationLog
     @Override
     public void update(Emp emp) {
         emp.setUpdateTime(LocalDateTime.now());

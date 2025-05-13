@@ -1,5 +1,6 @@
 package com.itheima.service.impl;
 
+import com.itheima.anno.RecordOperationLog;
 import com.itheima.mapper.DeptMapper;
 import com.itheima.pojo.Dept;
 import com.itheima.service.DeptService;
@@ -19,11 +20,13 @@ public class DeptServiceImpl implements DeptService {
         return deptMapper.list();
     }
 
+    @RecordOperationLog
     @Override
     public void delete(Integer id) {
         deptMapper.deleteById(id);
     }
 
+    @RecordOperationLog
     @Override
     public void add(Dept dept) {
         dept.setCreateTime(LocalDateTime.now());
